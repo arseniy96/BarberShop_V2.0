@@ -1,0 +1,8 @@
+User: Арсений, Phone: 8 999 276 6442, Date: 04.02 в 16:00, Hairdresser: Jessie Pinkman
+User: Арсений, Phone: 8 999 276 6442, Date: 05.02 в 17:00, Hairdresser: Gus Fring 
+User: Арсений, Phone: 8 999 276 6442, Date: 05.02 в 15:00, Hairdresser: Walter White
+User: Алиса, Phone: 8 999 888 5547, Date: 05.02 в 12:00, Hairdresser: Walter White 
+User: Илья, Phone: 123456789, Date: 05.02 в 11:00, Hairdresser: Gus Fring 
+User: Алиса, Phone: 8 999 276 6443, Date: 06.02 в 16:00, Hairdresser: Walter White, Color: #46d6db 
+User: Арсений, Phone: 8 999 276 6442, Date: 08.02 в 16:00, Hairdresser: Walter White, Color: #ffb878 
+User: Арсений, Phone: 8 999 276 6442, Date: 08.02 в 15:00, Hairdresser: Walter White, Color: #7bd148 
