@@ -4,9 +4,13 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
 
+def get_db
+  return SQLite3::Database.new 'barbershop.db'
+end
+
 configure do
-  @db = SQLite3::Database.new 'barbershop.s3db'
-  @db.execute 'CREATE TABLE IF NOT EXISTS
+  db = get_db
+  db.execute 'CREATE TABLE IF NOT EXISTS
   "USERS" (
     "id" INTEGER PRIMARY KEY AUTOINCREMENT,
     "username" TEXT,
@@ -58,13 +62,12 @@ post '/visit' do
     erb :visit
   else
 
-    @message = "Спасибо, #{@user_name}. Вы записаны на #{@date_time} к парикмахеру #{@barber}"
+    db = get_db
+    db.execute 'insert into Users (username, phone, datestamp, barber, color)
+                values (?, ?, ?, ?, ?)', [@user_name, @phone, @date_time, @barber, @color]
 
-    f = File.open("./public/users.txt","a")
-    f.write "User: #{@user_name}, Phone: #{@phone}, Date: #{@date_time}, Hairdresser: #{@barber}, Color: #{@color} \n"
-    f.close
+    erb "Спасибо, #{@user_name}. Вы записаны на #{@date_time} к парикмахеру #{@barber}"
 
-    erb @message
   end
 end
 
