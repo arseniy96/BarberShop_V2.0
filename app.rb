@@ -37,7 +37,7 @@ post '/visit' do
   @user_name = params[:user_name]
   @phone = params[:phone]
   @date_time = params[:date_time]
-  @hairdresser = params[:hairdresser]
+  @barber = params[:barber]
   @color = params[:color]
 
   if @user_name == '' or @phone == '' or @date_time == ''
@@ -45,10 +45,10 @@ post '/visit' do
     erb :visit
   else
 
-    @message = "Спасибо, #{@user_name}. Вы записаны на #{@date_time} к парикмахеру #{@hairdresser}"
+    @message = "Спасибо, #{@user_name}. Вы записаны на #{@date_time} к парикмахеру #{@barber}"
 
     f = File.open("./public/users.txt","a")
-    f.write "User: #{@user_name}, Phone: #{@phone}, Date: #{@date_time}, Hairdresser: #{@hairdresser}, Color: #{@color} \n"
+    f.write "User: #{@user_name}, Phone: #{@phone}, Date: #{@date_time}, Hairdresser: #{@barber}, Color: #{@color} \n"
     f.close
 
     erb @message
