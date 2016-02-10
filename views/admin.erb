@@ -4,22 +4,26 @@
 <body>
 
   <table class="table table-striped">
-    <tr>
-      <th>Username</th>
-      <th>Phone</th>
-      <th>Date</th>
-      <th>Barber</th>
-      <th>Color</th>
-    </tr>
-    <% @results.each do |row| %>
+    <thead>
       <tr>
-        <td><%= row['username'] %></td>
-        <td><%= row['phone'] %></td>
-        <td><%= row['datestamp'] %></td>
-        <td><%= row['barber'] %></td>
-        <td><%= row['color'] %></td>
+        <th>Username</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Barber</th>
+        <th>Color</th>
       </tr>
-    <% end %>
+    </thead>
+    <tbody>
+      <% @results.each do |row| %>
+        <tr>
+          <td><%= row['username'] %></td>
+          <td><%= row['phone'] %></td>
+          <td><%= row['datestamp'] %></td>
+          <td><%= row['barber'] %></td>
+          <td><%= row['color'] %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 
 </body>
