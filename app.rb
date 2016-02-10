@@ -5,7 +5,9 @@ require 'sinatra/reloader'
 require 'sqlite3'
 
 def get_db
-  return SQLite3::Database.new 'barbershop.db'
+  db = SQLite3::Database.new 'barbershop.db'
+  db.results_as_hash = true
+  return db
 end
 
 configure do
@@ -46,7 +48,8 @@ get '/entry' do
 end
 
 get '/admin' do
-  @users = File.open("./public/users.txt","r")
+  db = get_db
+  @results =  db.execute 'select * from Users order by id desc'
   erb :admin
 end
 
